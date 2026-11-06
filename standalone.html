@@ -326,14 +326,14 @@ class Station{
   const mountains=new T.Group();this.s.add(mountains);
   for(let row=0;row<3;row++){
    const vertices=[],z=-12+row*2.0;
-   let left=[-12,1.31+row*.25,z];
+   let left=[-12,.62+row*.12,z];
    for(let i=1;i<=27;i++){
-    const right=[-12+i*.9,.44+n()*(1.75-row*.28),z+(n()-.5)*.85];
+    const right=[-12+i*.9,.19+n()*(1.25-row*.14),z+(n()-.5)*.85];
     vertices.push(...left,left[0],-.95,left[2],...right,...right,left[0],-.95,left[2],right[0],-.95,right[2]);
     left=right;
    }
    const geo=new T.BufferGeometry();geo.setAttribute('position',new T.Float32BufferAttribute(vertices,3));geo.computeVertexNormals();
-   const mat=this.m.far.clone();mat.color.multiplyScalar(.18+row*.28);mat.side=T.DoubleSide;
+   const mat=this.m.far.clone();mat.color.setHex([0x34465e,0x374750,0x465766][row]).convertSRGBToLinear().multiplyScalar(.70);mat.side=T.DoubleSide;
    this.mesh(mountains,geo,mat,0,0,0);
   }
   const cometGeo=new T.BufferGeometry();cometGeo.setAttribute('position',new T.Float32BufferAttribute([2.22,6.73,-8,3.49,7.40,-8],3));
@@ -597,6 +597,7 @@ class Station{
   this.effects(now);this.r.render(this.s,this.cam);
  }
 }
+
 
 
 
