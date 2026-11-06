@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111b25"><title>Moon Tether</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="shell">
+<header>
+ <div class="insignia" aria-hidden="true">◒</div><div class="identity"><p>LUNAR SALVAGE DIVISION</p><h1>Moon Tether</h1></div>
+ <nav aria-label="Station"><button id="chart">Chart</button><button id="pause" aria-label="Pause" title="Pause">Ⅱ</button></nav>
+</header>
+<main>
+ <section class="brief" aria-label="Sector and recovery status">
+  <div class="sector"><span id="chapter" class="label"></span><h2 id="sector"></h2></div>
+  <div class="meters"><div><span class="label">RECOVERED</span><b id="pods"></b></div><div><span class="label">SPARES</span><b id="spares"></b></div></div>
+ </section>
+ <section id="stage" class="stage" aria-label="Lunar salvage platform">
+  <canvas id="scene" aria-label="Swipe across a cable to cut it"></canvas><canvas id="flat" hidden aria-label="Swipe across a cable to cut it"></canvas>
+  <div class="scan" aria-hidden="true"></div>
+  <div class="tag"><span></span> LIVE TELEMETRY</div>
+  <div class="bearing" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div id="cue" class="cue"></div>
+  <div id="impact" class="impact" role="status"></div>
+ </section>
+ <section class="console" aria-label="Cable cutters">
+  <div id="cutters" class="cutters">
+   <button id="left" class="cut"><span class="icon" aria-hidden="true">✂</span><span id="leftText">Cut cable</span></button>
+   <button id="right" class="cut" hidden><span class="icon" aria-hidden="true">✂</span>Cut right</button>
+  </div>
+  <div class="quick"><button id="focus" aria-pressed="false" title="Slow motion">½<span> Slow</span></button><button id="sound" aria-label="Mute sound" title="Sound">♪</button></div>
+ </section>
+ <p class="footer"><span>SWIPE A CABLE OR USE THE CUTTERS</span><span id="stars"></span></p>
+</main>
+</div>
+<dialog id="modal"><div id="content"></div></dialog>
+<script src="vendor/three.min.js"></script>
+<script type="module" src="app.mjs"></script>
+</body></html>
